@@ -1,0 +1,46 @@
+
+
+<div class="pt-20 bg-white w-full">
+   <form class="flex justify-center items-center gap-16" (submit)="addItem()">
+     <!-- <div class="flex justify-center items-center gap-2">
+       <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name:</label>
+       <input [(ngModel)]="name" type="text" [ngClass]="empty && !phoneNumber?'border-red-300':'border-gray-300'" id="name" class="bg-gray-50 border text-gray-900 text-sm rounded-lg
+       focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+       dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 "
+        placeholder="name ..." required name="name"/>
+     </div> -->
+
+     <div class="flex justify-center items-start gap-2">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white pt-2">Name:</label>
+
+        <div class="flex flex-col content-start items-start h-24">
+          <input [(ngModel)]="name" [ngClass]="empty && !name ?'border-red-300':'border-gray-300'" type="text" id="name" class="bg-gray-50 border text-gray-900 text-sm
+             rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700
+             dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
+             placeholder="name..." required name="name" />
+
+          <div *ngIf="empty && !name" class="text-red-300 text-sm">please enter name</div>
+        </div>
+     </div>
+
+     <div class="flex justify-center items-start gap-2">
+       <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white pt-2">Phone Number:</label>
+      <div class="flex flex-col content-start items-start h-24">
+        <input [(ngModel)]="phoneNumber" [ngClass]="empty && !phoneNumber || duplicated && phoneNumber ?'border-red-300':'border-gray-300'" type="text" id="phone-number" class="bg-gray-50 border text-gray-900 text-sm
+         rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700
+         dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
+         placeholder="phone number" required name="phone-number" />
+
+         <div *ngIf="empty && !phoneNumber" class="text-red-300 text-sm">please enter phone number</div>
+         <div *ngIf="duplicated && phoneNumber" class="text-red-300 text-sm">The Phone number is duplicated!</div>
+
+      </div>
+
+     </div>
+     <div class="flex flex-col content-start items-start h-24">
+        <button type="submit" class="text-white bg-sky-700 hover:bg-sky-800 focus:outline-none
+        focus:ring-4 focus:ring-sky-300 font-medium rounded-md text-sm px-5 py-2.5 text-center
+        dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800">ADD</button>
+    </div>
+   </form>
+</div>
